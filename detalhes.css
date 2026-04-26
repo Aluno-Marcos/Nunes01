@@ -1,40 +1,62 @@
-/* =================================================
-   RESET E VARIÁVEIS
-================================================= */
+/* =====================================
+   VARIÁVEIS E RESET
+===================================== */
 :root {
-    --azul-fb: #004aad;
+  --pzul-fb: rimaria: #007bff;
+  --secundaria: #6c757d;
+  --sucesso: #25d366;
+  --destaque: #dc3545;
+
+   --azul-fb: #004aad;
     --azul-escuro: #003580;
     --amarelo-fb: #ffde59;
     --cinza-claro: #f4f7f6;
     --branco: #ffffff;
     --texto: #333;
 
-    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --fundo: #ffffff;
+  --card: #ffffff;
+  --borda: #dee2e6;
 
-    --sm: 0.5rem;
-    --md: 1rem;
-    --lg: 2rem;
+  --texto: #343a40;
+  --texto-claro: #ffffff;
+
+  --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  --sm: 0.5rem;
+  --md: 1rem;
+  --lg: 2rem;
+
+  --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background-color: var(--cinza-claro);
-    color: var(--texto);
-    line-height: 1.6;
-    padding-bottom: 70px;
+  font-family: var(--fonte);
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+  padding-bottom: 90px;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: var(--primaria);
 }
 
+/* Acessibilidade 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}*/
 /* =================================================
    ACESSIBILIDADE
 ================================================= */
@@ -194,22 +216,106 @@ a {
     background-color: var(--amarelo-fb);
     color: var(--azul-escuro);
 }
-
-/* =================================================
-   MAIN
-================================================= */
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    min-height: calc(100vh - 180px);
+:focus-visible {
+  outline: 2px solid var(--primaria);
+  outline-offset: 2px;
 }
 
 
-/* =================================================
-   CATÁLOGO DE PRODUTOS (200x350)
-================================================= */
+.produto-acoes {
+  display: flex;
+  gap: var(--md);
+  margin-top: var(--lg);
+}
+
+.botao-whatsapp,
+.botao-compartilhar {
+  flex: 1;                 /* mesma largura */
+  padding: var(--sm) var(--md);
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+/* WhatsApp */
+.botao-whatsapp {
+  background: var(--sucesso);
+  width: 100%;
+}
+
+/* Compartilhar */
+.botao-compartilhar {
+  background: var(--secundaria);
+  width: 100%;
+  
+}
+
+/* Hover */
+.produto-acoes a:hover,
+.produto-acoes button:hover {
+  opacity: 0.9;
+}
+
+
+
+/* =====================================
+   MAIN
+===================================== */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2.5rem 5%;
+  min-height: calc(100vh - 220px);
+  
+}
+
+/* =====================================
+   DETALHES DO PRODUTO
+===================================== */
+
+.detalhes-produto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--lg);
+}
+
+
+.produto-midia {
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: var(--md);
+  text-align: center;
+}
+
+#imagem-produto {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.thumbnails {
+  margin-top: var(--sm);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.thumbnails img {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.thumbnails img.active {
+  border: 2px solid var(--primaria);
+}
+
+/* =====================================
+   CATÁLOGO (200x350)
+===================================== */
 
 .catalogo {
   display: grid;
@@ -220,74 +326,64 @@ main {
 
 
 .produto-item {
-    background: var(--branco);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--sombra);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
+  background: var(--branco);
+  border-radius: 8px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
 }
 
 .produto-item:hover {
-    transform: translateY(-6px);
-}
-
-.produto-link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  transform: translateY(-6px);
 }
 
 .produto-imagem {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background: #eee;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .produto-nome {
-    font-size: 1rem;
-    padding: 10px;
-    flex-grow: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  padding: 10px;
+  flex-grow: 1;
+  font-size: 1rem;
+  overflow: hidden;
 }
 
 .produto-preco {
-    font-size: 1.2rem;
-    color: var(--azul-fb);
-    font-weight: bold;
-    padding: 0 10px 10px;
+  font-size: 1.2rem;
+  color: var(--primaria);
+  font-weight: bold;
+  padding: 0 10px 10px;
 }
 
-/* =================================================
-   MENSAGEM DE STATUS
-================================================= */
-.mensagem-status {
-    text-align: center;
-    margin-top: var(--lg);
-    color: #666;
-    font-size: 1.1rem;
-}
-
-/* =================================================
+/* =====================================
    FOOTER
-================================================= */
+===================================== */
 footer {
-    background: #222;
-    color: var(--branco);
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background: var(--texto);
+  color: var(--branco);
+  text-align: center;
+  padding: var(--md);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-/* =================================================
+/* =====================================
+   RESPONSIVO
+===================================== */
+@media (max-width: 768px) {
+
+  .detalhes-produto-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+}/* =================================================
    RESPONSIVO (ATÉ 768px)
 ================================================= */
 @media (max-width: 768px) {
@@ -309,7 +405,7 @@ footer {
     }
 
     .barra-pesquisa {
-        width: 100%;
+        width: 99%;
         margin-top: 10px;
     }
 
@@ -352,19 +448,6 @@ footer {
     }
     .produto-imagem {
         height: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    main {
-        padding: 1.5rem 1rem;
-    }
-  }
-  
-@media (max-width: 768px) {
-    .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
     }
 }
 

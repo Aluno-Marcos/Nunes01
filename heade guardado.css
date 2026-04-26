@@ -1,0 +1,105 @@
+
+/* =====================================
+   HEADER
+===================================== */
+.cabecalho {
+  padding: var(--lg) var(--md);
+  border-bottom: 1px solid var(--borda);
+  text-align: center;
+}
+
+.logo-link h1 {
+  font-size: 2rem;
+}
+
+.slogan {
+  font-size: 0.9rem;
+  color: var(--secundaria);
+  margin-top: 0.3rem;
+}
+
+/* =================================================
+   BOTÃO HAMBURGUER
+================================================= */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    width: 25px;
+    height: 3px;
+    background: var(--branco);
+    display: block;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after  { bottom: -8px; }
+
+
+/* =====================================
+   BARRA DE PESQUISA
+===================================== */
+.barra-pesquisa {
+  display: flex;
+  gap: var(--sm);
+  max-width: 600px;
+  margin: var(--md) auto;
+  position: relative;
+}
+
+.campo-pesquisa {
+  flex: 1;
+  padding: var(--sm);
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+}
+
+.botao-pesquisa {
+  background: var(--primaria);
+  color: var(--texto-claro);
+  border: none;
+  padding: var(--sm) var(--md);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* =====================================
+   NAVEGAÇÃO
+===================================== */
+.nav-principal {
+  border-bottom: 1px solid var(--borda);
+  padding: var(--sm);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--sm);
+  list-style: none;
+}
+
+.nav-btn {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.nav-btn:hover,
+.nav-btn[aria-current="page"] {
+  background: var(--primaria);
+  color: var(--texto-claro);
+}*/
